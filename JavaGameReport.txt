@@ -1,0 +1,181 @@
+
+
+
+
+
+
+Object-Oriented Programming1 Project Report
+     TEAM MEMBERS:  Ismayil Yusifli, Farida Orucova,
+ Elshan Shukurov, Fakhriyya Huseynova
+GROUP: CS2 L1
+DATE: 05.21.25
+
+1. Introduction
+Context and Background
+This project implements a text-based adventure game using Java's object-oriented programming capabilities. The game challenges players to navigate through a labyrinth of interconnected rooms, battling enemies, collecting items, and ultimately defeating a boss character. The implementation serves as a practical demonstration of core OOP principles including encapsulation, inheritance, polymorphism, and abstraction.
+Objectives
+• Develop a fully functional console-based adventure game
+• Implement robust object-oriented architecture
+• Demonstrate proper use of design patterns
+• Create balanced gameplay mechanics
+• Provide clear documentation of design decisions
+Scope and Significance
+The project encompasses game world generation, player movement systems, combat mechanics, inventory management, and victory conditions. As an educational project, it highlights how object-oriented design can effectively model complex game systems while maintaining code organization and extensibility.
+2. Specifications
+Functional Requirements
+1. World Generation
+• Procedural creation of 7 interconnected rooms
+• Balanced placement of enemies, items, and obstacles
+• Verification of playable game state
+2. Player Systems
+• Movement via WASD controls
+• Health and damage management
+• Inventory system (keys, crowbar)
+• Combat interactions
+3. Entity Interactions
+• Enemy combat encounters
+• Item collection (keys, weapons)
+• Chest opening mechanics
+• Door transitions
+4. Game Progression
+• Room navigation
+• Character progression
+• Victory condition (boss defeat)
+Technical Constraints
+• Platform: Java SE (minimum version 8)
+• Dependencies: Standard Java libraries only
+• Input: Console-based text commands
+• Output: ASCII character display
+Terminology
+• Entity: Base class for all game objects
+• Room: 6x6 grid game space
+• Player: User-controlled character
+• Enemy: Hostile NPCs
+• Boss: Final challenge enemy
+• Item: Collectible objects (keys, crowbar)
+• Chest: Locked containers requiring crowbar
+UML Diagrams
+
+
+
+
+
+
+
+
+
+
+
+USE CASE diagram:
+
+
+
+
+
+
+3. Design
+Preliminary Design
+The system architecture follows a layered approach:
+1. Presentation Layer: GameManager handles console I/O
+2. Game Logic Layer: World and Room manage game state
+3. Entity Layer: Player, Enemy, and Item implementations
+Key dependencies:
+• GameManager coordinates all components
+• World maintains room connections
+• Player interacts with Entities
+• All game objects inherit from Entity base class
+Detailed Design
+Core Classes
+GameManager
+• Attributes: world, player, currentRoom
+• Methods: startGame(), handleInput(), display()
+World
+• Attributes: rooms[], doorConnections
+• Methods: generateWorld(), checkBalance()
+Room
+• Attributes: grid[][], entities
+• Methods: addEntity(), removeEntity()
+Entity (Abstract)
+• Attributes: position, symbol
+• Methods: interact()
+Inheritance Hierarchy
+Copy
+Download
+Entity
++-- Player
++-- Enemy
+¦   +-- Boss
++-- Chest
++-- Key
++-- Crowbar
+Interfaces
+• Activatable: activate()
+• Consumable: consume()
+• Executable: execute()
+4. Technical Choices and Justifications
+Programming Language
+Java was selected because:
+• Strong OOP capabilities
+• Platform independence
+• Rich standard library
+• Familiarity from coursework
+Architectural Decisions
+1. Interface-based Design
+• Clear behavior contracts
+• Flexible implementation
+• Easy extension
+2. Entity Component System
+• Clean hierarchy
+• Polymorphic interactions
+• Reduced code duplication
+3. World Generation Approach
+• Fixed room count ensures playability
+• Verification prevents unwinnable states
+• Randomization maintains replay value
+Libraries
+• Pure Java implementation
+• No external dependencies
+• java.util for collections and randomization
+• java.awt for Point class
+5. Possible Improvements
+Immediate Enhancements
+1. Save/Load System
+• Serialize game state
+• Persistent progression
+2. Enhanced Combat
+• Special abilities
+• Enemy varieties
+• Status effects
+3. Expanded Inventory
+• Multiple weapon slots
+• Consumable items
+• Equipment system
+Long-term Extensions
+1. Graphical Interface
+• Swing or JavaFX implementation
+• Sprite-based visuals
+• Animations
+2. Content Expansion
+• Additional room types
+• Story elements
+• NPC interactions
+3. Network Features
+• Multiplayer support
+• Online leaderboards
+• Cloud saving
+Conclusion
+This project successfully implements a text-based adventure game demonstrating strong object-oriented design principles. The clean architecture, thoughtful class hierarchy, and consistent implementation create an engaging gameplay experience while maintaining code quality and organization. The system provides a solid foundation for future enhancements and serves as an excellent example of applying OOP concepts to game development.
+Appendices
+Source Code Structure
+• /src/game/: All game classes
+• README.md: Build and run instructions
+Demonstration Video Outline
+1. Game launch and controls
+2. Room navigation demonstration
+3. Combat system showcase
+4. Item collection and usage
+5. Boss battle and victory
+This report, combined with the submitted source code and demonstration video, provides comprehensive documentation of the project's design, implementation, and potential for future development.
+
+1
+
